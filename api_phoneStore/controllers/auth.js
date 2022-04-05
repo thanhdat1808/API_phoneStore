@@ -53,7 +53,7 @@ class controller_auth {
         
         const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET, { expiresIn: "1h" });
         const id = user._id
-        res.header('token', token).send({token, id});
+        res.send({token, id});
     }
 }
 

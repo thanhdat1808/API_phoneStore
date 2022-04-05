@@ -13,7 +13,7 @@ class IphoneController{
     getDetail = async (req,res,next) =>{
         Iphone.findById(req.params.id)
             .then(iphones =>{
-                res.send(iphones.toJSON())
+                res.send(iphones)
             })
             .catch(next)
     }
@@ -32,7 +32,9 @@ class IphoneController{
         console.log(req.params.memory);
         Iphone.findById(req.params.id)
         .then(iphones =>{
-            res.send(iphones.type[req.params.memory].price)
+            iphones.type.forEach(element => {
+                if(element.memory == req.params.memory) res.send(element.price)
+            });
         })
         .catch(next)
     }

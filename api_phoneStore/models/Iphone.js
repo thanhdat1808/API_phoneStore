@@ -24,7 +24,7 @@ const iPhoneSchema = new Schema({
         required:true,
     },
     type:{
-        type:Object,
+        type:Array,
         required:true,
     },
     chip: {

@@ -4,7 +4,6 @@ class IphoneController{
     getData = async (req,res, next) =>{
         Iphone.find({})
             .then(iphones =>{
-                iphones = iphones.map(iphone => iphone.toObject())
                 res.send(iphones)
             })
             .catch(next)

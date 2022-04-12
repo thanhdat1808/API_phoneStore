@@ -46,12 +46,13 @@ class controller_auth {
         const user = await account.findOne({username: req.body.username});
         console.log(user);
         if (!user) return res.status(422).send('Username is not correct');
-
+        
         const checkPassword = await bcrypt.compare(req.body.password, user.password);
-
+        
         if (!checkPassword) return res.status(422).send('Email or Password is not correct');
         
         const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET, { expiresIn: "1h" });
+        console.log("okeee")
         const id = user._id
         res.send({token, id});
     }

@@ -5,4 +5,4 @@ var mongoose = require('mongoose');
 var mongoDB = 'mongodb+srv://dathk123:datheo2000@cluster0.hai8a.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
-module.exports = mongoose;  
+module.exports = mongoose;

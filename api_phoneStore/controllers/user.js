@@ -29,7 +29,7 @@ class userController{
             runValidators: true
             })
         .then(doc => {
-            res.send('update success')
+            res.send(doc)
         })
         .catch(err => {
             console.error(err)

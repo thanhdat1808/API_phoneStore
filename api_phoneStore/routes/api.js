@@ -14,7 +14,10 @@ router.route('/getUser/:id').get(verifyToken, userController.getUser)
 router.route('/changeUser').post(verifyToken, userController.changeUser)
 router.route('/changePassword').post(verifyToken, userController.changePassword)
 
-router.route('/addproduct').post(adminController.addproduct)
+router.route('/getAllUser').get(adminController.getAllUser)
+router.route('/addProduct').post(adminController.addProduct)
+router.route('/changeProduct').post(adminController.changeProduct)
+router.route('/deleteProduct').post(adminController.deleteProduct)
 
 router.route('/iphone/getFeaturedProduct').get(iphoneController.getDataFeatured)
 

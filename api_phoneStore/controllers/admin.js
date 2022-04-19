@@ -1,5 +1,6 @@
 const product = require('../models/Iphone')
 const user = require('../models/account')
+const oder = require('../models/order')
 
 class controller_admin {
     async addProduct(req, res) {
@@ -74,6 +75,51 @@ class controller_admin {
             })
             .catch(next)
         
+    }
+    async addOder(req, res) {
+        console.log(req.body);
+        const dataOder = new oder({
+            idUser: req.body.idUser,
+            total: req.body.total,
+            detail: req.body.detail,
+            status: req.body.status
+        });
+    
+        try {
+            const newOder = await dataOder.save();
+            await res.send("add success")
+        } catch (err) {
+            res.status(400).send('error');
+        }
+    }
+    async getOder(req, res) {
+        oder.find({})
+            .then(oders =>{
+                res.send(oders)
+            })
+            .catch(error => {
+                res.send('error')
+            })
+    }
+    async changeStatusOder(req, res) {
+        oder
+        .findOneAndUpdate(
+            {
+                _id: req.body.id
+            }, 
+            {
+                status: req.body.status
+            },
+            {
+            new: true,                       
+            runValidators: true
+            })
+        .then(doc => {
+            res.send('update success')
+        })
+        .catch(err => {
+            res.send('error')
+        })
     }
 }
 module.exports = new controller_admin

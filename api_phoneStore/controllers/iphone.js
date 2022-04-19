@@ -10,11 +10,34 @@ class IphoneController{
         
     }
     getDetail = async (req,res,next) =>{
-        Iphone.findById(req.params.id)
-            .then(iphones =>{
-                res.send(iphones)
+        const iphone = await Iphone.findOne({_id: req.params.id})
+        const views = iphone.view + 1
+        Iphone
+        .findOneAndUpdate(
+            {
+                _id: req.params.id
+            }, 
+            {
+                view : views
+            },
+            {
+            new: true,                       
+            runValidators: true
             })
-            .catch(next)
+        .then(doc => {
+            res.send(doc)
+        })
+        .catch(err => {
+            res.send("error")
+        })
+    }
+    async deleteProduct(req, res) {
+        product.deleteOne({_id:req.body.id}).then(() => {
+            res.send("success")
+        }) 
+        .catch(err => {
+            res.send("error")
+        })
     }
     getDataFeatured = async (req,res, next) =>{
         Iphone.find({})

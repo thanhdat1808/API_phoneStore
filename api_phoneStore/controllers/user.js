@@ -7,8 +7,9 @@ class userController{
             .then(users =>{
                 res.send(users)
             })
-            .catch(next)
-        
+            .catch(error => {
+                res.send("error")
+            })   
     }
     changeUser(req, res) {
         user
@@ -29,10 +30,10 @@ class userController{
             runValidators: true
             })
         .then(doc => {
-            res.send(doc)
+            res.send('update success')
         })
         .catch(err => {
-            console.error(err)
+            res.send('error')
         })
     }
     async changePassword(req, res) {
@@ -59,7 +60,27 @@ class userController{
             res.send('update success')
         })
         .catch(err => {
-            console.error(err)
+            res.send('error')
+        })
+    }
+    changeAddress(req, res) {
+        user
+        .findOneAndUpdate(
+            {
+                _id: req.body.id
+            }, 
+            {
+                address: req.body.address
+            },
+            {
+            new: true,                       
+            runValidators: true
+            })
+        .then(doc => {
+            res.send('update success')
+        })
+        .catch(err => {
+            res.send('error')
         })
     }
 }

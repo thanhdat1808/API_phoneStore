@@ -12,7 +12,7 @@ const admin = require('../controllers/admin');
 router.route('/register').post(authController.register)
 router.route('/login').post(authController.login)
 // User
-router.route('/getUser/:id').get(verifyToken, userController.getUser)
+router.route('/getUser').post(verifyToken, userController.getUser)
 router.route('/changeUser').post(verifyToken, userController.changeUser)
 router.route('/changePassword').post(verifyToken, userController.changePassword)
 router.route('/changeAddress').post(verifyToken, userController.changeAddress)
@@ -22,6 +22,8 @@ router.route('/addProduct').post(adminController.addProduct)
 router.route('/changeProduct').post(adminController.changeProduct)
 router.route('/deleteProduct').post(adminController.deleteProduct)
 router.route('/addOder').post(adminController.addOder)
+router.route('/listOder').post(adminController.listOder)
+router.route('/getRevenue').post(adminController.getRevenue)
 //Get product
 router.route('/iphone/getFeaturedProduct').get(iphoneController.getDataFeatured)
 

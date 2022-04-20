@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 
 class userController{
     getUser = async (req,res, next) => {
-        user.findOne({_id:req.params.id})
+        user.findOne({_id:req.body.id})
             .then(users =>{
                 res.send(users)
             })

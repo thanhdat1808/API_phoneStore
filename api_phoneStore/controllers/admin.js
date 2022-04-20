@@ -121,5 +121,22 @@ class controller_admin {
             res.send('error')
         })
     }
+    listOder = async (req,res, next) => {
+        oder.find({})
+            .then(oders =>{
+                res.send(oders)
+            })
+            .catch(next)
+    }
+    async getRevenue(req, res) {
+        console.log('getRevenue');
+        oder.find({_id:req.body.id, status: 5})
+            .then(oders => {
+                res.send(oders)
+            })
+            .catch(error => {
+                res.send('error')
+            })
+    }
 }
 module.exports = new controller_admin

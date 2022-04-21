@@ -16,6 +16,7 @@ router.route('/getUser').post(verifyToken, userController.getUser)
 router.route('/changeUser').post(verifyToken, userController.changeUser)
 router.route('/changePassword').post(verifyToken, userController.changePassword)
 router.route('/changeAddress').post(verifyToken, userController.changeAddress)
+router.route('/changeAvatar').post(verifyToken, userController.changeAvatar)
 // Admin
 router.route('/getAllUser').get(adminController.getAllUser)
 router.route('/addProduct').post(adminController.addProduct)

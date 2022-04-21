@@ -83,6 +83,26 @@ class userController{
             res.send('error')
         })
     }
+    async changeAvatar(req, res) {
+        user
+        .findOneAndUpdate(
+            {
+                _id: req.body.id
+            }, 
+            {
+                avatar: req.body.avatar
+            },
+            {
+            new: true,                       
+            runValidators: true
+            })
+        .then(doc => {
+            res.send('update success')
+        })
+        .catch(err => {
+            res.send('error')
+        })
+    }
 }
 
 module.exports = new userController

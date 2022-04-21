@@ -26,6 +26,7 @@ class controller_auth {
             username: req.body.username,
             password: hashPassword,
             fullname: req.body.fullname,
+            avatar: req.body.avatar,
             gender: req.body.gender,
             birthday: req.body.birthday,
             email: req.body.email,

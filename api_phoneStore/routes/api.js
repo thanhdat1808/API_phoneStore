@@ -18,6 +18,7 @@ router.route('/changePassword').post(verifyToken.User, userController.changePass
 router.route('/changeAddress').post(verifyToken.User, userController.changeAddress)
 router.route('/changeAvatar').post(verifyToken.User, userController.changeAvatar)
 router.route('/getOrderUser/:id').get(verifyToken.User, userController.getOrderUser)
+router.route('/addOrder').post(verifyToken.User, adminController.addOrder)
 // Admin
 router.route('/admin/login').post(adminController.login)
 router.route('/admin/changePassword').post(verifyToken.Admin, adminController.changePassword)
@@ -25,7 +26,6 @@ router.route('/getAllUser').get(verifyToken.Admin, adminController.getAllUser)
 router.route('/addProduct').post(verifyToken.Admin, adminController.addProduct)
 router.route('/changeProduct').post(verifyToken.Admin, adminController.changeProduct)
 router.route('/deleteProduct').post(verifyToken.Admin, adminController.deleteProduct)
-router.route('/addOrder').post(verifyToken.Admin, adminController.addOder)
 router.route('/listOrder').get(verifyToken.Admin, adminController.listOder)
 router.route('/getRevenue').post(verifyToken.Admin, adminController.getRevenue)
 //Get product

@@ -121,7 +121,7 @@ class controller_admin {
             .catch(next)
         
     }
-    async addOder(req, res) {
+    async addOrder(req, res) {
         console.log(req.body);
         const dataOder = new oder({
             idUser: req.body.idUser,

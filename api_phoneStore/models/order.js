@@ -5,8 +5,7 @@ const Schema = mongoose.Schema
 const OrderSchema = new Schema({
     idUser:{
         type:String,
-        required:true,
-        unique:true
+        required:true
     },
     total:{
         type:String,

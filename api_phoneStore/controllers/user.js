@@ -1,9 +1,10 @@
 const user = require('../models/account')
 const bcrypt = require('bcryptjs')
+const order = require('../models/order')
 
 class userController{
     getUser = async (req,res, next) => {
-        user.findOne({_id:req.body.id})
+        user.findOne({_id:req.params.id})
             .then(users =>{
                 res.send(users)
             })
@@ -102,6 +103,16 @@ class userController{
         .catch(err => {
             res.send('error')
         })
+    }
+    async getOrderUser(req, res) {
+        order.find({idUser:req.params.id})
+            .then(orders => {
+                res.send(orders)
+            })
+            .catch(err => {
+                res.send('Error')
+            })
+
     }
 }
 

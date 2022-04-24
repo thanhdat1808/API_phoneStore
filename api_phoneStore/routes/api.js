@@ -19,6 +19,7 @@ router.route('/changeAddress').post(verifyToken.User, userController.changeAddre
 router.route('/changeAvatar').post(verifyToken.User, userController.changeAvatar)
 router.route('/getOrderUser/:id').get(verifyToken.User, userController.getOrderUser)
 router.route('/addOrder').post(verifyToken.User, adminController.addOrder)
+router.route('/cancelOrder').post(verifyToken.User, userController.cancelOrder)
 // Admin
 router.route('/admin/login').post(adminController.login)
 router.route('/admin/changePassword').post(verifyToken.Admin, adminController.changePassword)
@@ -28,6 +29,7 @@ router.route('/changeProduct').post(verifyToken.Admin, adminController.changePro
 router.route('/deleteProduct').post(verifyToken.Admin, adminController.deleteProduct)
 router.route('/listOrder').get(verifyToken.Admin, adminController.listOrder)
 router.route('/getRevenue').post(verifyToken.Admin, adminController.getRevenue)
+router.route('/changeStatusOrder').post(verifyToken.Admin, adminController.changeStatusOrder)
 //Get product
 router.route('/iphone/getFeaturedProduct').get(iphoneController.getDataFeatured)
 router.route('/getprice/:id/:memory').get(iphoneController.getPrice)

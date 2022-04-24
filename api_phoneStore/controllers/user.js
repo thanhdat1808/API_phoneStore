@@ -112,7 +112,26 @@ class userController{
             .catch(err => {
                 res.send('Error')
             })
-
+    }
+    async cancelOrder(req, res) {
+        order
+        .findOneAndUpdate(
+            {
+                _id: req.body.id
+            }, 
+            {
+                status: 5
+            },
+            {
+            new: true,                       
+            runValidators: true
+            })
+        .then(doc => {
+            res.send('cancel success')
+        })
+        .catch(err => {
+            res.send('error')
+        })
     }
 }
 

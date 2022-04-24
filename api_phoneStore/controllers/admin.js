@@ -174,7 +174,7 @@ class controller_admin {
             .catch(next)
     }
     async getRevenue(req, res) {
-        order.find({_id:req.body.id, status: 5})
+        order.find({_id:req.body.id, status: 4})
             .then(orders => {
                 res.send(orders)
             })

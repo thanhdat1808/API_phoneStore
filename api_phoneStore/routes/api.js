@@ -26,7 +26,7 @@ router.route('/getAllUser').get(verifyToken.Admin, adminController.getAllUser)
 router.route('/addProduct').post(verifyToken.Admin, adminController.addProduct)
 router.route('/changeProduct').post(verifyToken.Admin, adminController.changeProduct)
 router.route('/deleteProduct').post(verifyToken.Admin, adminController.deleteProduct)
-router.route('/listOrder').get(verifyToken.Admin, adminController.listOder)
+router.route('/listOrder').get(verifyToken.Admin, adminController.listOrder)
 router.route('/getRevenue').post(verifyToken.Admin, adminController.getRevenue)
 //Get product
 router.route('/iphone/getFeaturedProduct').get(iphoneController.getDataFeatured)

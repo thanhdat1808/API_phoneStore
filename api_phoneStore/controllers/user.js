@@ -133,6 +133,15 @@ class userController{
             res.send('error')
         })
     }
+    async getOrderUser(req, res) {
+        order.find({idUser: req.params.id_user})
+        .then(orders => {
+            res.send(orders)
+        })
+        .catch(error => {
+            res.send('error')
+        })
+    }
 }
 
 module.exports = new userController

@@ -20,6 +20,7 @@ router.route('/changeAvatar').post(verifyToken.User, userController.changeAvatar
 router.route('/getOrderUser/:id').get(verifyToken.User, userController.getOrderUser)
 router.route('/addOrder').post(verifyToken.User, adminController.addOrder)
 router.route('/cancelOrder').post(verifyToken.User, userController.cancelOrder)
+router.route('/cancelOrder/:id_user').get(verifyToken.User, userController.getOrderUser)
 // Admin
 router.route('/admin/login').post(adminController.login)
 router.route('/admin/changePassword').post(verifyToken.Admin, adminController.changePassword)

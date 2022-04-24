@@ -123,7 +123,7 @@ class controller_admin {
     }
     async addOrder(req, res) {
         console.log(req.body);
-        const dataOder = new oder({
+        const dataOrder = new order({
             idUser: req.body.idUser,
             total: req.body.total,
             detail: req.body.detail,
@@ -131,22 +131,22 @@ class controller_admin {
         });
     
         try {
-            const newOder = await dataOder.save();
+            const newOrder = await dataOrder.save();
             await res.send("add success")
         } catch (err) {
             res.status(400).send('error');
         }
     }
-    async getOder(req, res) {
+    async getOrder(req, res) {
         order.find({})
-            .then(oders =>{
-                res.send(oders)
+            .then(orders =>{
+                res.send(orders)
             })
             .catch(error => {
                 res.send('error')
             })
     }
-    async changeStatusOder(req, res) {
+    async changeStatusOrder(req, res) {
         order
         .findOneAndUpdate(
             {
@@ -166,17 +166,17 @@ class controller_admin {
             res.send('error')
         })
     }
-    listOder = async (req,res, next) => {
+    listOrder = async (req,res, next) => {
         order.find({})
-            .then(oders =>{
-                res.send(oders)
+            .then(orders =>{
+                res.send(orders)
             })
             .catch(next)
     }
     async getRevenue(req, res) {
         order.find({_id:req.body.id, status: 5})
-            .then(oders => {
-                res.send(oders)
+            .then(orders => {
+                res.send(orders)
             })
             .catch(error => {
                 res.send('error')

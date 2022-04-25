@@ -134,7 +134,7 @@ class userController{
         })
     }
     async getOrderUser(req, res) {
-        order.find({idUser: req.params.id_user})
+        order.find({idUser: req.params.id})
         .then(orders => {
             res.send(orders)
         })

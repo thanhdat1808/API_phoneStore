@@ -16,7 +16,7 @@ class controller_admin {
         
         if (!checkPassword) return res.status(422).send('Email or Password is not correct');
         
-        const token = jwt.sign({_id: admin._id}, process.env.TOKEN_SECRET, { expiresIn: "1h" });
+        const token = jwt.sign({_id: admin._id}, process.env.TOKEN_SECRET, { expiresIn: "100h" });
 
         const id = admin._id
         res.send({token, id});

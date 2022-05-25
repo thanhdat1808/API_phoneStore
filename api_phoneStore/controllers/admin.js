@@ -24,9 +24,9 @@ class controller_admin {
     async changePassword(req, res) {
         const find = await admins.findOne({_id: req.body.id});
         const checkOldPassword = await bcrypt.compare(req.body.old_password, find.password);
-        if (!checkOldPassword) return res.status(422).send('Old password is not correct');
+        if (!checkOldPassword) return res.status(422).send('Mật khẩu cũ không chính xác');
         const checkNewPassword = await bcrypt.compare(req.body.new_password, find.password);
-        if (checkNewPassword) return res.status(422).send('The new password must not be the same as the old password');
+        if (checkNewPassword) return res.status(422).send('Mật khẩu mới không được giống mật khẩu cũ');
         const salt = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(req.body.new_password, salt);
         admins
@@ -42,7 +42,7 @@ class controller_admin {
             runValidators: true
             })
         .then(doc => {
-            res.send('update success')
+            res.send('Cập nhật mật khẩu thành công')
         })
         .catch(err => {
             res.send('error')

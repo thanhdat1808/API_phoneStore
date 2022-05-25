@@ -31,6 +31,7 @@ router.route('/deleteProduct').post(verifyToken.Admin, adminController.deletePro
 router.route('/listOrder').get(verifyToken.Admin, adminController.listOrder)
 router.route('/getRevenue').post(verifyToken.Admin, adminController.getRevenue)
 router.route('/changeStatusOrder').post(verifyToken.Admin, adminController.changeStatusOrder)
+router.route('/filterOrder').post(verifyToken.Admin, adminController.filterOrder)
 //Get product
 router.route('/iphone/getFeaturedProduct').get(iphoneController.getDataFeatured)
 router.route('/getprice/:id/:memory').get(iphoneController.getPrice)

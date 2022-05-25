@@ -182,5 +182,24 @@ class controller_admin {
                 res.send('error')
             })
     }
+    async filterOrder(req, res) {
+        let limit = {}
+        let query = {}
+        if(req.body.date_start!="") {
+            limit.$gte = new Date(req.body.date_start)
+        }
+        if(req.body.date_end!="") {
+            limit.$lt = new Date(req.body.date_end)
+        }
+        if(limit.$gte|| limit.$lt) {
+            query = {createAt : limit}
+        }
+        order.find(query).then(orders => {
+            res.send(orders)
+        })
+        .catch(error => {
+            res.send('error')
+        })
+    }
 }
 module.exports = new controller_admin

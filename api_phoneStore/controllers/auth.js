@@ -36,7 +36,7 @@ class controller_auth {
 
         try {
             const newacc = await user.save();
-            if(newacc){
+            if (newacc) {
                 await res.send("register success")
             }
         } catch (err) {

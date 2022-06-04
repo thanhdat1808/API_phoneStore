@@ -195,6 +195,10 @@ class controller_admin {
         if (limit.$gte || limit.$lt) {
             query = { createAt: limit }
         }
+        if (req.body.status) {
+            query.status = parseInt(req.body.status)
+        }
+        console.log(query)
         order.find(query).then(orders => {
             res.send(orders)
         })
